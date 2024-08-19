@@ -40,6 +40,10 @@ async function run() {
       const addedBike = await allBikeCollection.insertOne(req.body);
       res.send(addedBike);
     })
+    app.get('/allBIke/mybike/:email', async(req, res) => {
+      const result = await allBikeCollection.find({email: req.params.email}).toArray();
+      res.send(result);
+    })
 
 
     // Send a ping to confirm a successful connection
