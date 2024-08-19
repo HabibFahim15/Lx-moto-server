@@ -35,6 +35,12 @@ async function run() {
       res.send(result);
     })
 
+    app.post('/allBIke', async(req, res) => {
+      console.log(req.body);
+      const addedBike = await allBikeCollection.insertOne(req.body);
+      res.send(addedBike);
+    })
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
